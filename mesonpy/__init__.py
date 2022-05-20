@@ -719,7 +719,7 @@ class Project():
     def sdist(self, directory: Path) -> pathlib.Path:
         """Generates a sdist (source distribution) in the specified directory."""
         # generate meson dist file
-        self._meson('dist', '--no-tests', '--formats', 'gztar')
+        self._meson('dist', '--allow-dirty', '--no-tests', '--formats', 'gztar')
 
         # move meson dist file to output path
         dist_name = f'{self.name}-{self.version}'
